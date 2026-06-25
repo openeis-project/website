@@ -1,0 +1,40 @@
+title "My AnyCMS Site"
+base_url "https://example.com"
+default_language "en"
+output_dir "public"
+
+taxonomies {
+    taxonomy name="tags"
+}
+
+languages {
+    language code="fr"
+}
+
+// Per-plugin config overrides. Each plugin's manifest ships its own `config {}`
+// defaults; declare a matching entry here to override them (site wins). Plugins
+// read the merged result via host::get_plugin_config().
+// plugins {
+//     plugin "my-plugin" {
+//         key "value"
+//     }
+// }
+
+// Deployment targets. `anycms deploy <name>` publishes `output_dir/` to the
+// selected target. Built-in providers: `git` (push to a branch, e.g. GitHub
+// Pages) and `ssh-rsync` (rsync over SSH). See docs/deploy.md.
+// deploy {
+//     target "gh-pages" {
+//         provider "git"
+//         repo     "git@github.com:user/user.github.io.git"
+//         branch   "gh-pages"
+//     }
+//     target "prod" {
+//         provider  "ssh-rsync"
+//         host      "deploy@server.example.com"
+//         path      "/var/www/mysite"
+//         delete    #true
+//         port      22
+//         exclude   "drafts/**"
+//     }
+// }

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }} · {{ config.title }}{% endblock %}
+{% block content %}
+<section class="listing">
+  {% if section.content %}
+  <div class="listing-intro">{{ section.content | safe }}</div>
+  {% endif %}
+  <ul class="post-list">
+    {% for p in section.pages %}
+    <li>
+      <a class="post-list-title" href="{{ p.url | safe }}">{{ p.title }}</a>
+      {% if p.date %}<time class="post-list-date" datetime="{{ p.date }}">{{ p.date }}</time>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% if section.paginator %}
+  <nav class="pagination">
+    {% if section.paginator.prev_url %}<a href="{{ section.paginator.prev_url | safe }}">← Prev</a>{% endif %}
+    <span>Page {{ section.paginator.current }} / {{ section.paginator.total_pages }}</span>
+    {% if section.paginator.next_url %}<a href="{{ section.paginator.next_url | safe }}">Next →</a>{% endif %}
+  </nav>
+  {% endif %}
+</section>
+{% endblock %}
