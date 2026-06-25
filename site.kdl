@@ -23,18 +23,10 @@ languages {
 // Deployment targets. `anycms deploy <name>` publishes `output_dir/` to the
 // selected target. Built-in providers: `git` (push to a branch, e.g. GitHub
 // Pages) and `ssh-rsync` (rsync over SSH). See docs/deploy.md.
-// deploy {
-//     target "gh-pages" {
-//         provider "git"
-//         repo     "git@github.com:user/user.github.io.git"
-//         branch   "gh-pages"
-//     }
-//     target "prod" {
-//         provider  "ssh-rsync"
-//         host      "deploy@server.example.com"
-//         path      "/var/www/mysite"
-//         delete    #true
-//         port      22
-//         exclude   "drafts/**"
-//     }
-// }
+deploy {
+    target "gh-pages" {
+        provider "git"
+        repo     "git@github.com:openeis-project/website.git"
+        branch   "gh-pages"
+    }
+}
