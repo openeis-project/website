@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+<title>My AnyCMS Site</title>
+<link>https://example.com</link>
+<description>My AnyCMS Site</description>
+
+<item>
+<title>Hello World</title>
+<link>https://example.com/blog/hello-world/</link>
+<guid>https://example.com/blog/hello-world/</guid>
+
+<pubDate>2026-06-19</pubDate>
+<description>&lt;h1 id=&quot;hello-world&quot;&gt;Hello World&lt;&#x2f;h1&gt;
+&lt;p&gt;My &lt;strong&gt;first&lt;&#x2f;strong&gt; post.&lt;&#x2f;p&gt;
+</description>
+</item>
+
+<item>
+<title>Second Post</title>
+<link>https://example.com/blog/second-post/</link>
+<guid>https://example.com/blog/second-post/</guid>
+
+<pubDate>2026-06-18</pubDate>
+<description></description>
+</item>
+
+</channel>
+</rss>

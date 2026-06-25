@@ -1,0 +1,15 @@
+/* AnyCMS default highlight (syntect classed spans) */
+pre { background: #1e1e1e; color: #d4d4d4; padding: 1rem; overflow-x: auto; border-radius: 6px; }
+pre code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: none; padding: 0; }
+.source { color: inherit; }
+.comment { color: #6a9955; font-style: italic; }
+.string { color: #ce9178; }
+.constant.numeric { color: #b5cea8; }
+.keyword { color: #569cd6; }
+.keyword.control { color: #c586c0; }
+.storage.type, .storage.modifier { color: #569cd6; }
+.support.function, .entity.name.function { color: #dcdcaa; }
+.entity.name.class, .entity.name.type { color: #4ec9b0; }
+.variable.parameter, .variable { color: #9cdcfe; }
+.punctuation.definition.comment { color: #6a9955; }
+.entity.name.tag { color: #569cd6; }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url><loc>https://example.com/blog/</loc><xhtml:link rel="alternate" hreflang="en" href="https://example.com/blog/"/><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/blog/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/"/></url>
+
+  <url><loc>https://example.com/fr/blog/</loc><xhtml:link rel="alternate" hreflang="en" href="https://example.com/blog/"/><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/blog/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/"/></url>
+
+  <url><loc>https://example.com/fr/blog/hello-world/</loc><lastmod>2026-06-19</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/blog/hello-world/"/><xhtml:link rel="alternate" hreflang="en" href="https://example.com/blog/hello-world/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/hello-world/"/></url>
+
+  <url><loc>https://example.com/blog/hello-world/</loc><lastmod>2026-06-19</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/blog/hello-world/"/><xhtml:link rel="alternate" hreflang="en" href="https://example.com/blog/hello-world/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/blog/hello-world/"/></url>
+
+  <url><loc>https://example.com/blog/second-post/</loc><lastmod>2026-06-18</lastmod></url>
+
+  <url><loc>https://example.com/</loc><xhtml:link rel="alternate" hreflang="en" href="https://example.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/"/></url>
+
+  <url><loc>https://example.com/fr/</loc><xhtml:link rel="alternate" hreflang="en" href="https://example.com/"/><xhtml:link rel="alternate" hreflang="fr" href="https://example.com/fr/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://example.com/"/></url>
+
+  <url><loc>https://example.com/tags/</loc></url>
+
+  <url><loc>https://example.com/tags/bonjour/</loc></url>
+
+  <url><loc>https://example.com/tags/hello/</loc></url>
+
+  <url><loc>https://example.com/tags/intro/</loc></url>
+
+  <url><loc>https://example.com/blog/page/2/</loc></url>
+
+</urlset>
