@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}{{ config.title }} · Open Enterprise Information System{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Open Enterprise Information System</p>
+    <h1 class="hero-title">{{ config.title }}</h1>
+    <p class="hero-install"><span class="prompt">$</span><code>cargo install openeis</code></p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#features">Get started</a>
+      <a class="btn btn-ghost" href="https://github.com/openeis-project">GitHub <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <h2 class="section-title">One CLI, the whole lifecycle</h2>
+  <div class="feature-grid">
+    <article class="card">
+      <div class="card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 12v6M9 15h6"/>
+        </svg>
+      </div>
+      <h3 class="card-title"><code>generate</code></h3>
+      <p class="card-desc">Scaffold projects from KDL templates — local, git, archive, favorite.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 20h14"/>
+        </svg>
+      </div>
+      <h3 class="card-title"><code>publish</code></h3>
+      <p class="card-desc">Publish artifacts to a registry. <em>(planned)</em></p>
+    </article>
+
+    <article class="card">
+      <div class="card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </div>
+      <h3 class="card-title"><code>deploy</code></h3>
+      <p class="card-desc">Build, package &amp; ship over SSH/rsync — rust / node / python.</p>
+    </article>
+
+    <article class="card">
+      <div class="card-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>
+        </svg>
+      </div>
+      <h3 class="card-title">plugins</h3>
+      <p class="card-desc">Extend with <code>openeis-&lt;name&gt;</code> subcommands.</p>
+    </article>
+  </div>
+</section>
+
+<article class="prose">
+  {{ section.content | safe }}
+</article>
+{% endblock %}

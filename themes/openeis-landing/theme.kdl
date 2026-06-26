@@ -1,0 +1,8 @@
+theme {
+    name "openeis-landing"
+    version "0.1.0"
+    description "现代落地页主题,专为 openeis 设计:深色 hero、特性卡片栅格、暗色模式、响应式。"
+    engine-version "0.1.0"
+    license "MIT"
+    homepage "https://openeis.org"
+}

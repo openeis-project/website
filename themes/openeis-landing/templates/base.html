@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{% if page %}{{ page.lang }}{% elif section %}{{ section.lang }}{% else %}{{ config.default_language }}{% endif %}"
+      {% if config.params.dark == "on" %}data-theme="dark"
+      {% elif config.params.dark == "off" %}data-theme="light"{% endif %}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="/main.css">
+  {% if config.base_url %}
+  {% if page %}
+  <link rel="alternate" hreflang="{{ page.lang }}" href="{{ config.base_url | safe }}{{ page.url | safe }}">
+  {% for t in page.translations %}
+  <link rel="alternate" hreflang="{{ t.lang }}" href="{{ config.base_url | safe }}{{ t.url | safe }}">
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ config.base_url | safe }}{{ page.url | safe }}">
+  {% elif section %}
+  <link rel="alternate" hreflang="{{ section.lang }}" href="{{ config.base_url | safe }}{{ section.url | safe }}">
+  {% for t in section.translations %}
+  <link rel="alternate" hreflang="{{ t.lang }}" href="{{ config.base_url | safe }}{{ t.url | safe }}">
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+  {% if seo_head %}{{ seo_head | safe }}{% endif %}
+  {% if head_inject %}{{ head_inject | safe }}{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="site-title" href="/">{{ config.title }}</a>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a class="nav-ext" href="https://github.com/openeis-project">GitHub</a>
+      {% if page and page.translations %}
+      <span class="lang-switch">
+        <span class="cur">{{ page.lang }}</span>
+        {%- for t in page.translations %}<a href="{{ t.url | safe }}">{{ t.lang }}</a>{% endfor -%}
+      </span>
+      {% elif section and section.translations %}
+      <span class="lang-switch">
+        <span class="cur">{{ section.lang }}</span>
+        {%- for t in section.translations %}<a href="{{ t.url | safe }}">{{ t.lang }}</a>{% endfor -%}
+      </span>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main id="main" class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-brand">{{ config.title }} · Open Enterprise Information System</p>
+      <p class="footer-meta">&copy; {{ config.title }} · <a href="https://openeis.org">openeis.org</a></p>
+    </div>
+  </footer>
+
+  {% if body_inject %}{{ body_inject | safe }}{% endif %}
+</body>
+</html>
