@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh"
+<html lang="en"
       >
 <head>
   <meta charset="utf-8">
@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="/main.css">
   
   
-  <link rel="alternate" hreflang="zh" href="https://openeis.org/">
-  
   <link rel="alternate" hreflang="en" href="https://openeis.org/en/">
+  
+  <link rel="alternate" hreflang="zh" href="https://openeis.org/">
   
   
   
@@ -27,7 +27,7 @@
       <a class="nav-ext" href="https://github.com/openeis-project">GitHub</a>
       
       <span class="lang-switch">
-        <span class="cur">zh</span><a href="/en/">en</a></span>
+        <span class="cur">en</span><a href="/">zh</a></span>
       
     </nav>
   </header>
@@ -93,30 +93,35 @@
 </section>
 
 <article class="prose">
-  <p><strong>openeis</strong> —— <em>Open Enterprise Information System(开源企业信息系统)</em>,是构建企业信息化系统的基础设施层:一个围绕 <strong>创建 → 发布 → 部署</strong> 生命周期的统一 CLI,外加可扩展的 <code>openeis-&lt;name&gt;</code> 插件机制。</p>
-<h2 id="核心工作流">核心工作流</h2>
-<table><thead><tr><th>命令</th><th>作用</th><th>状态</th></tr></thead><tbody>
-<tr><th><code>openeis generate</code></th><th>从 KDL 模板生成项目(本地 / git / archive / favorite;Liquid 渲染 + Rhai 钩子)</th><th>✅ 已发布</th></tr>
-<tr><th><code>openeis publish</code></th><th>发布产物到 registry</th><th>⏳ 规划中</th></tr>
-<tr><th><code>openeis deploy</code></th><th>按 <code>openeis.kdl</code> 构建 → 打包 → 发布</th><th>✅ 已发布</th></tr>
+  <p><strong>openeis</strong> — <em>Open Enterprise Information System</em> — is the infrastructure
+layer for building enterprise information systems: a single CLI around the
+<strong>create → publish → deploy</strong> lifecycle, plus an extensible <code>openeis-&lt;name&gt;</code>
+plugin mechanism.</p>
+<h2 id="core-workflow">Core workflow</h2>
+<table><thead><tr><th>Command</th><th>What it does</th><th>Status</th></tr></thead><tbody>
+<tr><th><code>openeis generate</code></th><th>Scaffold a project from a KDL template (local / git / archive / favorite; Liquid rendering + Rhai hooks)</th><th>✅ shipped</th></tr>
+<tr><th><code>openeis publish</code></th><th>Publish artifacts to a registry</th><th>⏳ planned</th></tr>
+<tr><th><code>openeis deploy</code></th><th>Build → package → publish, driven by <code>openeis.kdl</code></th><th>✅ shipped</th></tr>
 </tbody></table>
-<p><code>deploy</code> 支持 <strong>rust / node / python</strong> 项目(自动探测),打包成 <strong>tarball / wheel / docker</strong>,通过 <strong>SSH/rsync</strong> 发布。</p>
-<h2 id="天生可扩展">天生可扩展</h2>
-<p>openeis 本身也是 cargo 风格的外部子命令分发器:<code>PATH</code> 中任何名为 <code>openeis-&lt;name&gt;</code> 的可执行文件,都会被 <code>openeis &lt;name&gt;</code> 调用。</p>
+<p><code>deploy</code> supports <strong>rust / node / python</strong> projects (auto-detected), packages
+as <strong>tarball / wheel / docker</strong>, and ships via <strong>SSH/rsync</strong>.</p>
+<h2 id="extensible-by-design">Extensible by design</h2>
+<p>openeis is also a cargo-style external-subcommand dispatcher: any executable
+named <code>openeis-&lt;name&gt;</code> on your <code>PATH</code> is invoked by <code>openeis &lt;name&gt;</code>.</p>
 <ul>
-<li><code>openeis install &lt;src&gt;</code> —— 安装插件(本地路径或 URL)</li>
-<li><code>openeis uninstall &lt;name&gt;</code> —— 卸载插件</li>
-<li><code>openeis --list</code> —— 列出内置 + 外部命令(外部命令经 <code>__describe</code> 协议提供描述)</li>
-<li><code>openeis completions &lt;shell&gt;</code> —— bash / zsh / fish / … 补全(外部插件也能补全)</li>
+<li><code>openeis install &lt;src&gt;</code> — install a plugin (local path or http(s) URL)</li>
+<li><code>openeis uninstall &lt;name&gt;</code> — remove one</li>
+<li><code>openeis --list</code> — list built-in + external commands</li>
+<li><code>openeis completions &lt;shell&gt;</code> — bash / zsh / fish / … completions</li>
 </ul>
-<h2 id="配置文件">配置文件</h2>
-<table><thead><tr><th>文件</th><th>作用域</th><th>使用者</th></tr></thead><tbody>
-<tr><th><code>&lt;project&gt;/openeis.kdl</code></th><th>项目(构建 / 打包 / 目标)</th><th><code>deploy</code>,未来 <code>publish</code></th></tr>
-<tr><th><code>&lt;template&gt;/template.kdl</code></th><th>模板(过滤 / 占位符 / 钩子)</th><th><code>generate</code></th></tr>
-<tr><th><code>~/.config/openeis/openeis.kdl</code></th><th>全局收藏</th><th><code>generate</code></th></tr>
+<h2 id="configuration">Configuration</h2>
+<table><thead><tr><th>File</th><th>Scope</th><th>Used by</th></tr></thead><tbody>
+<tr><th><code>&lt;project&gt;/openeis.kdl</code></th><th>project (build/package/target)</th><th><code>deploy</code>, future <code>publish</code></th></tr>
+<tr><th><code>&lt;template&gt;/template.kdl</code></th><th>template (filters/placeholders/hooks)</th><th><code>generate</code></th></tr>
+<tr><th><code>~/.config/openeis/openeis.kdl</code></th><th>global favorites</th><th><code>generate</code></th></tr>
 </tbody></table>
-<h2 id="快速开始">快速开始</h2>
-<pre><code class="language-sh"><span class="source shell bash"><span class="meta function-call shell"><span class="variable function shell">cargo</span></span><span class="meta function-call arguments shell"> install openeis            <span class="comment line number-sign shell"><span class="punctuation definition comment begin shell">#</span></span><span class="comment line number-sign shell"> 或从源码构建:cargo build</span><span class="comment line number-sign shell">
+<h2 id="quick-start">Quick start</h2>
+<pre><code class="language-sh"><span class="source shell bash"><span class="meta function-call shell"><span class="variable function shell">cargo</span></span><span class="meta function-call arguments shell"> install openeis            <span class="comment line number-sign shell"><span class="punctuation definition comment begin shell">#</span></span><span class="comment line number-sign shell"> or build from source: cargo build</span><span class="comment line number-sign shell">
 </span></span><span class="meta function-call shell"><span class="variable function shell">openeis</span></span><span class="meta function-call arguments shell"><span class="variable parameter option shell"><span class="punctuation definition parameter shell"> --</span>help</span></span>
 <span class="meta function-call shell"><span class="variable function shell">openeis</span></span><span class="meta function-call arguments shell"> generate<span class="variable parameter option shell"><span class="punctuation definition parameter shell"> --</span>path</span> ./my-template<span class="variable parameter option shell"><span class="punctuation definition parameter shell"> --</span>name</span> my-app</span>
 <span class="meta function-call shell"><span class="variable function shell">openeis</span></span><span class="meta function-call arguments shell"> deploy<span class="variable parameter option shell"><span class="punctuation definition parameter shell"> --</span>dry-run</span></span>

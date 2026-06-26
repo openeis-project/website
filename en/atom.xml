@@ -2,6 +2,6 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 <id>https://openeis.org</id>
 <title>openeis</title>
-<link rel="self" href="https://openeis.org/zh/rss.xml"/>
+<link rel="self" href="https://openeis.org/en/rss.xml"/>
 
 </feed>
