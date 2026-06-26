@@ -1,7 +1,7 @@
 +++
-title = "Blog"
+title = "博客"
 paginate_by = 1
 +++
-# Blog
+# 博客
 
-Posts:
+文章:

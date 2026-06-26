@@ -1,14 +1,11 @@
-title "My AnyCMS Site"
-base_url "https://example.com"
-default_language "en"
+title "openeis"
+base_url "https://openeis.org"
+default_language "zh"
 output_dir "public"
-
-taxonomies {
-    taxonomy name="tags"
-}
+theme "openeis-landing"
 
 languages {
-    language code="fr"
+    language code="en"
 }
 
 // Per-plugin config overrides. Each plugin's manifest ships its own `config {}`
